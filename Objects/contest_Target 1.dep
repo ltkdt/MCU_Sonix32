@@ -1,6 +1,6 @@
 Dependencies for Project 'contest', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6240000::V6.24::ARMCLANG
-F (.\Source\UserAPP\main.c)(0x69E08E91)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/Admin/AppData/Local/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-IC:/Users/Admin/AppData/Local/Arm/Packs/SONiX/SN32F4_DFP/1.1.1/Device/Include-D__UVISION_VERSION="543" -DSN32F400 -D_RTE_-o ./objects/main.o -MMD)
+F (.\Source\UserAPP\main.c)(0x69E0979E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/Admin/AppData/Local/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-IC:/Users/Admin/AppData/Local/Arm/Packs/SONiX/SN32F4_DFP/1.1.1/Device/Include-D__UVISION_VERSION="543" -DSN32F400 -D_RTE_-o ./objects/main.o -MMD)
 I (C:\Users\Admin\AppData\Local\Arm\Packs\SONiX\SN32F4_DFP\1.1.1\Device\Include\SN32F400.h)(0x69D685B1)
 I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include\core_cm0.h)(0x69D6672E)
 I (C:\Users\Admin\AppData\Local\Arm\Packs\SONiX\SN32F4_DFP\1.1.1\Device\Include\system_SN32F400.h)(0x69D685B1)
@@ -8,6 +8,7 @@ I (C:\Users\Admin\AppData\Local\Arm\Packs\SONiX\SN32F4_DFP\1.1.1\Device\Include\
 I (Source\UserAPP\..\Driver\GPIO.h)(0x69D5F466)
 I (Source\UserAPP\..\Driver\WDT.h)(0x69D5F466)
 I (Source\UserAPP\..\Driver\SPI.h)(0x69D5F466)
+I (Source\UserAPP\..\Driver\I2C.h)(0x69D5F466)
 I (Source\UserAPP\..\Driver\CT16B0.h)(0x69DEF8A7)
 I (Source\UserAPP\..\Driver\Utility.h)(0x69D5F466)
 I (Source\UserAPP\..\Module\sst_flash.h)(0x69D5F466)

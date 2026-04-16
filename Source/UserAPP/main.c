@@ -8,6 +8,7 @@ For contest
 #include "..\Driver\GPIO.h"
 #include "..\Driver\WDT.h"
 #include "..\Driver\SPI.h"
+#include "..\Driver\I2C.h"
 #include "..\Driver\CT16B0.h"
 #include "..\Driver\Utility.h"
 #include "..\Module\sst_flash.h"
@@ -75,6 +76,7 @@ buzzer_state_t buzzer_state = BUZZER_IDLE; // State machine for buzzer
 
 system_mode_t mode = MODE_NORMAL; 
 clock_time_t SegmentTimer= {0, 0, 0};
+clock_time_t TempTimer= {0, 0, 0};
 clock_time_t AlarmTimer = {0,0,0};
 uint16_t display_val = 0;
 uint8_t alarm_buffer[2];
@@ -97,6 +99,8 @@ int	main(void)
 	GPIO_Init();								//initial gpio
 	
 	WDT_Init();									//Set WDT reset overflow time ~ 250ms
+	
+	I2C0_Init();								//Init I2C before any EEPROM read/write
 	
 	CT16B0_Init();
 	// void eeprom_read(uint8_t addr,uint8_t reg,uint8_t *dat,uint16_t length);
@@ -232,21 +236,27 @@ int	main(void)
 						case MODE_NORMAL:
 						case MODE_SET_HOUR:
 						case MODE_SET_MIN:
+								TempTimer = SegmentTimer;
 								mode = MODE_SET_HOUR_ALARM;
 								break;
 
 						case MODE_SET_HOUR_ALARM:
+								
 								mode = MODE_SET_MIN_ALARM;
 								break;
 
 						case MODE_SET_MIN_ALARM:
+								
 								AlarmTimer.hour = SegmentTimer.hour;
 								AlarmTimer.min = SegmentTimer.min;
 								alarm_buffer[0] = AlarmTimer.hour;
 								alarm_buffer[1] = AlarmTimer.min;
+						
+								
 
 								eeprom_write(EEPROM_WRITE_ADDR, EEPROM_ALARM_ADDR, alarm_buffer, 2);
-
+								SegmentTimer = TempTimer;
+								display_val = SegmentTimer.hour * 100 + SegmentTimer.min;
 								mode = MODE_NORMAL;
 								break;
 				}
