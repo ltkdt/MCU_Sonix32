@@ -39,7 +39,7 @@
 * Return		: None
 * Note			: None
 *****************************************************************************/
-__irq void ADC_IRQHandler(void)
+void ADC_IRQHandler(void)
 {
 	SN_ADC->IC = 0xFFFFFFF;
 }

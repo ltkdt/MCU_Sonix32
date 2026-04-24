@@ -51,6 +51,12 @@ void CT16B1_IRQHandler(void)
 	if(ris & (1 << 5))		//interrupt flag for match MR9
 	{
 		timer_1ms_flag = 1;
+    timer_repeat++;
+    if(timer_repeat >= 1000)
+     {
+       timer_repeat = 0;
+			 timer_1s_flag = 1;
+     }
 	}
 	SN_CT16B1->IC = ris;
 }
@@ -107,3 +113,5 @@ void CT16B1_NvicDisable(void)
 {
 	NVIC_DisableIRQ(CT16B1_IRQn);
 }
+
+

@@ -24,10 +24,10 @@
 #define __CT16B0_CLKSEL_PLL_VCO						SN_SYS0->CT_CLKSEL_b.CLKSEL0 = CT16B0_CLKSEL_PLL_VCO
 
 /*_____ D E C L A R A T I O N S ____________________________________________*/
-extern uint8_t timer_1s_flag;
-extern uint8_t timer_1ms_flag;
+
 void CT16B0_Init(void);
 void CT16B0_NvicEnable(void);
 void CT16B0_NvicDisable(void);
 
 #endif	/*__SN32F400_CT16B0_H*/
+

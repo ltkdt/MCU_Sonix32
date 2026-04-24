@@ -434,6 +434,16 @@
               <FileType>1</FileType>
               <FilePath>.\Source\Driver\I2C0.c</FilePath>
             </File>
+            <File>
+              <FileName>CT16B1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\Driver\CT16B1.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\Driver\ADC.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

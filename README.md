@@ -1,15 +1,24 @@
-## CODE MCU SONIX 32 BITS
+## Digital Clock Project - SN32F407 EVK
 
-Hiện tại em đã test được các chức năng:
-- Điều chỉnh giờ (mode hẹn giờ và điểu chỉnh giờ bình thường)
-- Nhấp nháy khi bấm nút
+Dự án này thực hiện việc xây dựng một thiết bị đồng hồ số (Digital Clock) trên kit phát triển SN32F407 EVK thuộc dòng vi điều khiển của Sonix. Hệ thống cho phép hiển thị thời gian thực, điều chỉnh giờ/phút và cài đặt báo thức lưu trữ trong bộ nhớ EEPROM.
 
-Các task tương ứng trong bài tập: task 1 đến 6.
+- Tính Năng Chính
 
-Bug hiện tại: Hiện em chưa làm được buzzer để phát âm thanh nên em chưa kiểm tra được chức năng Alarm.  Logic cho bật còi thì có vẻ đúng nên em vẫn đang tìm hiểu. Khi debug được bước này có thể chuyển đến các task còn lại và sau đó tối ưu
+    + Hiển thị thời gian thực: Sử dụng 4 LED 7 đoạn hiển thị theo định dạng HH.MM.
+
+    + Điều chỉnh thời gian: Chế độ Setup cho phép thay đổi Giờ và Phút với hiệu ứng nhấp nháy 1s (0.5s ON/0.5s OFF).
+
+    + Hẹn giờ (Alarm): * Cài đặt giờ báo thức và lưu trực tiếp vào EEPROM để không bị mất khi tắt thiết bị.
+
+    + LED chỉ báo (D6) nhấp nháy khi ở chế độ hẹn giờ.
+
+    + Cảnh báo âm thanh: * Còi Buzzer phát tiếng "pip" (0.3s) khi nhấn nút.
+
+    + Phát cảnh báo liên tục trong 5s khi đến giờ hẹn.
+
+    + Chế độ Timeout: Tự động thoát về màn hình chính sau 30 giây nếu không có tương tác nút bấm
 
 Setup cho project Keil UVision:
-- Ban đầu em tạo copy của ví dụ số 11, tuy nhiên module clock CT16B0 được thay bằng ví dụ 6 vì module này ở ví dụ 11 có vẻ là PWM timer, bỏ module CT16B1 bằng KeilU (không phải xóa files). Structure project giống như trong ảnh:
+- Các module và driver được include được thể hiện như trong ảnh
 
-
-![Setup](./screenshot.png)
+![Setup](./keil_u_vision.png)

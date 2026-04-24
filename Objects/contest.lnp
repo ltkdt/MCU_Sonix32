@@ -8,6 +8,8 @@
 ".\objects\utility.o"
 ".\objects\ct16b0.o"
 ".\objects\i2c0.o"
+".\objects\ct16b1.o"
+".\objects\adc.o"
 ".\objects\keyscan.o"
 ".\objects\segment.o"
 ".\objects\sst_flash.o"

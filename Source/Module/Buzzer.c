@@ -41,19 +41,19 @@
 /*_____ M A C R O S ________________________________________________________*/
 const uint16_t musical_table[] = {
 	
-	(uint16_t)HCLK_FREQ/SET_PITCH1_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH2_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH3_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH4_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH5_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH6_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH7_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH8_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH9_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH10_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH11_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH12_FREQ,
-	(uint16_t)HCLK_FREQ/SET_PITCH13_FREQ,
+	(uint16_t)(HCLK_FREQ/SET_PITCH1_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH2_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH3_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH4_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH5_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH6_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH7_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH8_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH9_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH10_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH11_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH12_FREQ),
+	(uint16_t)(HCLK_FREQ/SET_PITCH13_FREQ),
 	
 };
 /*_____ F U N C T I O N S __________________________________________________*/
@@ -67,13 +67,18 @@ const uint16_t musical_table[] = {
 *****************************************************************************/
 void set_buzzer_pitch(uint8_t pitch)
 {
-	if(pitch < (sizeof(musical_table)>>1))
+	uint8_t buff_len = sizeof(musical_table)>>1;		//16bit size, buffer length /2
+	if(pitch < buff_len)	
 	{
 		SN_CT16B0->MR9 = musical_table[pitch];
 		SN_CT16B0->MR0 = SN_CT16B0->MR9 >> 1;
+		
+		SN_CT16B0->TMRCTRL = 0;					//START TIMER
+		SN_CT16B0->TMRCTRL = 1;					//START TIMER
 	}
 	else
 	{
 		SN_CT16B0->MR0 = 0;		//disable buzzer;
 	}
 }
+
